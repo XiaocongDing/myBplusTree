@@ -45,6 +45,16 @@ public:
     // main functions:
     int getKeyIndex(Tkey key);
     Node<Tkey, Tdata> *getChildTreeByKey(Tkey key);
+    int getPChildrenIndexByKey(Tkey key);
+    int getPChildrenIndexInParent();
+    Node<Tkey, Tdata> *getLeftBrotherNode();
+    Node<Tkey, Tdata> *getRightBrotherNode();
+
+    bool updateKeyByIndex(int index, Tkey key);
+    bool updateThePParentInChildrenNode(Node<Tkey, Tdata> *selfNode);
+    bool insertInLeafNode(Tkey key, Tdata data);
+    bool insertInIndexNode(Tkey key, Node<Tkey, Tdata> *pNewChildIndex, Node<Tkey, Tdata> *pNewChildIndex2);
+    bool ifNeedToSplitNode();
 
     bool mergeWithLeftBrotherLeafNode(Node<Tkey, Tdata> *pLeftBrotherNode);
     bool mergeWithRightBrotherLeafNode(Node<Tkey, Tdata> *pRightBrotherNode);
