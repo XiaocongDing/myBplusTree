@@ -43,8 +43,8 @@ public:
     bool setPNext(Node<Tkey, Tdata> *pNext); 
 
     // main functions:
-    bool getKeyIndex(Tkey key);
-    
+    int getKeyIndex(Tkey key);
+    Node<Tkey, Tdata> *getChildTreeByKey(Tkey key);
 
     bool mergeWithLeftBrotherLeafNode(Node<Tkey, Tdata> *pLeftBrotherNode);
     bool mergeWithRightBrotherLeafNode(Node<Tkey, Tdata> *pRightBrotherNode);
