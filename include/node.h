@@ -56,8 +56,30 @@ public:
     bool insertInIndexNode(Tkey key, Node<Tkey, Tdata> *pNewChildIndex, Node<Tkey, Tdata> *pNewChildIndex2);
     bool ifNeedToSplitNode();
 
-    bool mergeWithLeftBrotherLeafNode(Node<Tkey, Tdata> *pLeftBrotherNode);
-    bool mergeWithRightBrotherLeafNode(Node<Tkey, Tdata> *pRightBrotherNode);
+    KeyUnit<Tkey, Tdata> *splitLeafNode();
+    KeyUnit<Tkey, Tdata> *splitIndexNode();
+
+    bool deleteInLeafNodeByKey(Tkey key); //delete the key value in leaf node
+    bool deleteInLeafNodeByIndex(int keyIndex);
+
+    bool deleteInIndexNodeByKey(Tkey key, Node<Tkey, Tdata> *pRetainenNode); //delete the key value in key node
+    bool deleteInIndexNodeByKeyIndex(int keyIndex, Node<Tkey, Tdata> *pRetainenNode);
+
+    bool ifNeedToMergeOrBorrow();
+    bool ifCanLendKeyToOtherLeafNode(); 
+    bool ifCanLendKeyToOthreIndexNode(); // if the node can be borrowed to other index node
+
+    KeyUnit<Tkey, Tdata> *lendTheMinKeyInLeafNode(); // leaf node lend the min key value;
+    KeyUnit<Tkey, Tdata> *lendTheMaxKeyInLeafNode();  // leaf lend max
+    KeyUnit<Tkey, Tdata> *lendTheMinKeyInIndexNode(); // index lend min
+    KeyUnit<Tkey, Tdata> *lendTheMaxKeyInIndexNode(); // index lend max
+
+    bool ifCanMergeWithOtherLeafNode();
+
+    bool mergeWithLeftBrotherIndexNodeAndParentKey(Node<Tkey, Tdata> *pLeftBrotherNode, Tkey parentValue);
+    bool mergeWithRightBrotherIndexNodeAndParentKey(Node<Tkey ,Tdata> *pRightBrotherNode, Tkey parentValue);
+    bool mergeWithLeftBrotherLeafNode(Node<Tkey, Tdata> *pLeftBrotherNode); // merge with left leaf node
+    bool mergeWithRightBrotherLeafNode(Node<Tkey, Tdata> *pRightBrotherNode); // merge with right leaf node 
     
 };
 
