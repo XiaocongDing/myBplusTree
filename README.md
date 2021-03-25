@@ -153,6 +153,18 @@ mysql使用了一个并发版本控制机制MVCC，虽然事务内的数据是�
 
 写入TPS：数据库每秒执行的事务数，以COMMIT成功次数为准
 
+## MySQL基准测试
+
+基准测试观察系统在不同压力下的行为，评估系统的容量，掌握哪些是重要的变化，观察系统是如何处理数据的。
+
+1、创办阿里云PolarDB实例
+
+2、批量向数据库插入数据
+
+3、打开JMeter开始测试计划，添加JDBC测试驱动
+
+https://www.cnblogs.com/fnng/archive/2011/07/26/2117600.html
+
 ## 参考连接
 
 https://www.cnblogs.com/nullzx/p/8729425.html
