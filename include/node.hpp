@@ -4,7 +4,7 @@
 #include<iostream>
 #include<cstdio>
 
-
+using namespace std;
 template<typename Tkey, typename Tdata>
 class Node {
 protected:
@@ -283,4 +283,39 @@ bool Node<Tkey, Tdata>::setPParent(Node<Tkey, Tdata> *pParent) {
     return true;
 }
 //
+
+template<typename Tkey, typename Tdata>
+bool Node<Tkey, Tdata>::setPNext(Node<Tkey, Tdata> *pNext) {
+    if(isLeafNode == false){
+        std::cout << "setPNext():node isn't leafNode" << std::endl;
+        return false;
+    }
+    this->pNextLeafNode = pNext;
+    return true;
+}
+
+template<typename Tkey, typename Tdata>
+bool Node<Tkey, Tdata>::setPPre(Node<Tkey, Tdata> *pPre){
+    if(isLeafNode==false){
+        cout << "setPPre(): node isn't leafNode" << endl;
+        return false;
+    }
+    this->pPreLeafNode = pPre;
+    return true;
+}
+
+template<typename Tkey, typename Tdata>
+bool Node<Tkey, Tdata>::setPChild(Node<Tkey, Tdata> *pChild, int index){
+    pChildren[index] = pChild;
+    return true;
+}
+
+template<typename Tkey, typename Tdata>
+int Node<Tkey, Tdata>::getKeyIndex(Tkey key){
+    for(int i = 0; i< currentKeyNum; ++i){
+        if(pKey[i]==key) return i;
+    }
+    return -1;
+}
+
 #endif
